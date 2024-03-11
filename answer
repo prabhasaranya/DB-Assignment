@@ -1,0 +1,29 @@
+Questions
+
+ ### 1. Explain the relationship between the "Product" and "Product_Category" entities from the above diagram.
+
+Ans :   This typically involves a many-to-one relationship, where many products can belong to a single category.
+        
+        Each row in the Product table represents a unique product, identified by its ProductID.
+Each row in the Category table represents a unique category, identified by its CategoryID.
+The CategoryID column in the Product table establishes a foreign key relationship with the Category table, indicating which category each product belongs to.
+The Category table contains general attributes of categories, such as name.
+The Product table contains attributes specific to products, such as name and description, as well as a foreign key reference to the category it belongs to.
+This structure represent a many-to-one relationship between products and categories. Many products can belong to the same category, but each product belongs to only one category.
+
+
+### 2. How could you ensure that each product in the "Product" table has a valid category assigned to it?
+
+Ans:  1.Define a Foreign Key Constraint: In the "Product" table, create a foreign key constraint on the "CategoryID" column that references the primary key "CategoryID" column in the "Category" table. This ensures that each value in the "CategoryID" column of the "Product" table corresponds to an existing category in the "Category" table.
+
+    2.Disallow Null Values: Ensure that the "CategoryID" column in the "Product" table does not allow NULL values. This means every product must have a category assigned to it.
+
+    3.Data Validation: Ensure that any data insertion or update operations involving the "CategoryID" column in the "Product" table are validated against the existing categories in the "Category" table. 
+
+Each product in the "Product" table must have a valid "CategoryID" that corresponds to an existing category in the "Category" table.
+Attempting to insert or update a product with an invalid "CategoryID" will result in a foreign key constraint violation error, ensuring data integrity.
+By disallowing NULL values in the "CategoryID" column, you enforce that each product must have a category assigned to it.
+These measures help maintain data consistency and integrity within the database, ensuring that each product in the "Product" table is associated with a valid category.
+
+
+
